@@ -19,19 +19,20 @@ public class Show extends Application {
         System.out.println("enter number of points : ");
         Scanner scanner = new Scanner(System.in);
         numberOfPoints = scanner.nextInt();
-        int[] XOfPoints = new int[numberOfPoints];
-        int[] YOfPoints = new int[numberOfPoints];
+        int[] xOfPoints = new int[numberOfPoints];
+        int[] yOfPoints = new int[numberOfPoints];
         System.out.println("enter points :");
         for (int i = 0; i < numberOfPoints; i++) {
-            XOfPoints[i] = scanner.nextInt();
-            YOfPoints[i] = scanner.nextInt();
+            xOfPoints[i] = scanner.nextInt();
+            yOfPoints[i] = scanner.nextInt();
         }
+        scanner.close();
         MyInt XMin = new MyInt(0);
         MyInt YMin = new MyInt(0);
         MyInt XMax = new MyInt(0);
         MyInt YMax = new MyInt(0);
-        findMinAndMax(XOfPoints, 0, numberOfPoints, XMin, XMax);
-        findMinAndMax(YOfPoints, 0, numberOfPoints, YMin, YMax);
+        findMinAndMax(xOfPoints, 0, numberOfPoints, XMin, XMax);
+        findMinAndMax(yOfPoints, 0, numberOfPoints, YMin, YMax);
 
 
         Group group = new Group();
@@ -39,7 +40,7 @@ public class Show extends Application {
         Circle[] points = new Circle[numberOfPoints];
 
         for (int i = 0; i < numberOfPoints; i++) {
-            points[i] = new Circle(XOfPoints[i],YOfPoints[i],2.5);
+            points[i] = new Circle(xOfPoints[i],yOfPoints[i],2.5);
             points[i].setFill(Color.BLACK);
         }
 
@@ -64,5 +65,6 @@ public class Show extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
     }
 }
